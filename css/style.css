@@ -1,0 +1,131 @@
+/* global */
+*{
+    box-sizing: border-box;
+}
+body {
+    background-color: black;
+}
+
+.container-md {
+    max-width: 85%;
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+li {
+    list-style: none;
+}
+.col-md-3 .meal ,.item{
+    cursor: pointer;
+}
+.tag{
+    cursor: auto;
+}
+
+/* start nav-bar */
+.nav-bar {
+    height: 100vh;
+    font-size: 20px;
+    z-index: 200;
+
+
+}
+
+.nav-bar .outer-width {
+    white-space: nowrap;
+    display: none;
+
+}
+
+.nav-bar .nav-links {
+    height: 100vh;
+    color: white;
+}
+
+.nav-bar .nav-icons {
+    background-color: white;
+    height: inherit;
+}
+
+.nav-bar .nav-icons img {
+    width: 60px;
+}
+
+.nav-bar .nav-links li {
+    padding: 10px 0px;
+}
+
+.nav-bar .nav-icons i {
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+}
+
+
+
+/* end nav-bar */
+
+/* start home */
+.home .meal {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+
+}
+
+.home .meal-layer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 100%;
+    transition: top 1s;
+    background-color: rgba(228, 215, 207, .8);
+
+}
+
+.home .meal:hover .meal-layer {
+    top: 0;
+    left: 0;
+}
+
+/* end home */
+
+/* start serach*/
+.search input::placeholder {
+    color: gray;
+    font-size: 18px;
+}
+
+.search input:focus {
+    color: white;
+}
+/* end serach*/
+
+/*start loading */
+.loading{
+    z-index: 5555;
+}
+  .loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 30px;
+    padding: 0 5px 8px 0;
+    background: repeating-linear-gradient(90deg,currentColor 0 8%,#0000 0 10%) 200% 100%/200% 3px no-repeat;
+    animation: l3 2s steps(6) infinite;
+  }
+  .loader:before {
+    content:"Loading..."
+  }
+  @keyframes l3 {to{background-position: 80% 100%}}
+  /*end loading */
+
+  @media (min-width: 768px) {
+    .custom-font-size {
+        font-size: 19px!important; /* equivalent to fs-4 */
+    }
+}

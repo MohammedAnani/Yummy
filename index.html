@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy</title>
+    <link rel="icon" href="imgs/logo.png">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- start nav-bar -->
+    <div class="nav-bar d-flex position-fixed top-0 ">
+        <div class="outer-width ">
+            <div class="nav-links  d-flex flex-column justify-content-between  bg-black">
+                <ul class="p-2 p-md-4 overflow-hidden">
+                    <li><a href="#" id="searchBtn" class="position-relative ps-2">Search</a></li>
+                    <li><a href="#" id="categoryBtn" class="position-relative ps-2">Categories</a></li>
+                    <li><a href="#" id="areaBtn" class="position-relative ps-2">Area</a></li>
+                    <li><a href="#" id="ingredientBtn" class="position-relative ps-2">Ingredients</a></li>
+                    <li><a href="#" id="contactBtn" class="position-relative ps-2">Contact Us</a></li>
+                </ul>
+                <div class="nav-inf p-2 p-md-4">
+                    <div class="nav-global ">
+                        <a target="_blank" href="https://www.youtube.com/"><i
+                                class="fa-brands fa-facebook fs-2 ps-2"></i></a>
+                        <a target="_blank" href="https://www.twitter.com/"><i
+                                class="fa-brands fa-twitter px-2 fs-2"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/"><i
+                                class="fa-brands  fa-instagram fs-2"></i></a>
+                        <p class="pt-2 ps-2">Copyright Â© 2024 All Rights <br>
+                            Reserved.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-icons p-2 d-flex flex-column justify-content-between align-items-center">
+            <img src="imgs/logo.png" class="" alt="">
+            <i class="fa-solid fa-bars" id="toggle"></i>
+
+            <div>
+                <a target="_blank" href="https://www.themealdb.com/api.php"><i class="fa-solid fa-globe"></i></a><br>
+                <a target="_blank" href="https://www.themealdb.com/api.php"><i class="fa-solid fa-share py-2"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- end nav-bar -->
+
+ <!-- start contacts -->
+ <div class=" contact d-none">
+    <div class="container-md w-75 mx-md-auto mx-sm-auto me-3 text-center">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <input  oninput="validationInputs(this)" type="text " class="form-control p-2"
+                    placeholder="Enter Your Name" id="nameInput">
+                <div id="nameAlert" class="alert alert-danger p-1 mt-1 d-none">
+                    <small>Name must be between 3 and 20 characters (letters and spaces only).</small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input oninput="validationInputs(this)" type="email" class="form-control p-2"
+                    placeholder="Enter Your Email" id="emailInput">
+                <div id="emailAlert" class="alert alert-danger p-1 mt-1 d-none">
+                    <small>Invalid email address</small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input oninput="validationInputs(this)" type="tel" class="form-control p-2"
+                    placeholder="Enter Your Phone" id="phoneInput">
+                <div id="phoneAlert" class="alert alert-danger p-1 mt-1 d-none">
+                    <small>Invalid phone number. It should be between 10 and 15 digits.</small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input oninput="validationInputs(this)" type="number" class="form-control p-2"
+                    placeholder="Enter Your Age" id="ageInput">
+                <div id="ageAlert" class="alert alert-danger p-1 mt-1 d-none">
+                    <small>Age must be between 1 and 120.</small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input oninput="validationInputs(this)" type="password" class="form-control p-2"
+                    placeholder="Enter Your Password" id="passwordInput">
+                <div id="passAlert" class="alert alert-danger p-1 mt-1 d-none">
+                    <small>Password must contain at least one uppercase letter, one lowercase letter, one number,
+                        and one special character (e.g. @$!%*?&).</small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input oninput="validationInputs(this)" type="password" class="form-control p-2"
+                    placeholder="RePassword " id="rePasswordInput">
+                <div id="rePasAlert" class="alert alert-danger p-1 mt-1 d-none">
+                    <small>Passwords do not match.</small>
+                </div>
+            </div>
+        </div>
+        <button class="disabled my-4 py-2 px-3 btn btn-outline-danger rounded-2  " id="disableBtn">Submit</button>
+
+    </div>
+</div>
+<!-- end contacts -->
+<!-- start search -->
+<div class="search text-white d-none ">
+    <div class="container-md w-75 mx-md-auto mx-sm-auto me-3 w-75 my-4">
+        <div class="row g-2">
+            <div class="col-md-6">
+                <div class="item">
+                    <form>
+                        <div class="mb-3">
+                            <input onkeyup="getSearchByName(this.value)" type="text"
+                                class="form-control bg-black   p-2 " id="nameInput" aria-describedby="emailHelp"
+                                placeholder="Search By Name">
+                        </div>
+                        <div class="alert alert-danger p-1 mt-0 d-none">Enter the Meal Name By Correctly</div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="item">
+                    <form>
+                        <div class="mb-3">
+                            <input maxlength="1" onkeyup="getSearchByFirstLetter(this.value)" type="text"
+                                class="form-control bg-black  p-2" id="letterInput" aria-describedby="emailHelp"
+                                placeholder="Search By First Later">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end search -->
+    <!-- start home (display all data) -->
+    <div class="home">
+        <div class="container-md w-75 mx-md-auto mx-sm-auto me-3 text-black">
+            <div class="row g-4 py-5" id="rowDate">
+            </div>
+        </div>
+    </div>
+    <!-- end home -->
+
+    
+
+   
+
+    <!--start loading -->
+    <div
+        class="loading bg-black  text-white vh-100 w-100 position-fixed top-0 z- d-flex justify-content-center align-items-center d-none">
+        <div class="loader"></div>
+    </div>
+    <!--end loading -->
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
